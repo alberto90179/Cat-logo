@@ -12,5 +12,5 @@ Route::get('/movies/{id}', [MovieController::class, 'show']);
 // Ruta para insertar un nuevo registro (POST)
 Route::post('/movies', [MovieController::class, 'store']);
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome.blade');
 });

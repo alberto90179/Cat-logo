@@ -30,7 +30,7 @@ class MovieController extends Controller
        // Validar los datos recibidos
        $validated = $request->validate([
            'title' => 'required|string|max:255',
-           'synopsis' => 'required|string',
+           'synopsis' => 'required|text',
            'year' => 'required|integer|min:1888|max:' . date('Y'), // Año válido entre 1888 y el año actual
            'cover' => 'required|string|max:255', // Aquí podrías validar también si es una URL válida
        ]);
