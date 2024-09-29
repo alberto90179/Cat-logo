@@ -1,7 +1,8 @@
-<?php
+<?php 
 
 namespace App\Http\Controllers;
 
+use App\Models\Movie; // Asegúrate de importar el modelo Movie
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -30,9 +31,9 @@ class MovieController extends Controller
        // Validar los datos recibidos
        $validated = $request->validate([
            'title' => 'required|string|max:255',
-           'synopsis' => 'required|text',
+           'synopsis' => 'required|string', // Cambiado a string
            'year' => 'required|integer|min:1888|max:' . date('Y'), // Año válido entre 1888 y el año actual
-           'cover' => 'required|string|max:255', // Aquí podrías validar también si es una URL válida
+           'cover' => 'required|url|max:255', // Validación como URL
        ]);
 
        // Crear el nuevo registro en la base de datos
