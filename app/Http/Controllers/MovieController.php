@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Movie; // Asegúrate de importar el modelo Movie
+use App\Models\Movie;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -31,9 +31,9 @@ class MovieController extends Controller
        // Validar los datos recibidos
        $validated = $request->validate([
            'title' => 'required|string|max:255',
-           'synopsis' => 'required|string', // Cambiado a string
-           'year' => 'required|integer|min:1888|max:' . date('Y'), // Año válido entre 1888 y el año actual
-           'cover' => 'required|url|max:255', // Validación como URL
+           'synopsis' => 'required|string',
+           'year' => 'required|integer|min:1888|max:' . date('Y'),
+           'cover' => 'required|url|max:255',
        ]);
 
        // Crear el nuevo registro en la base de datos
@@ -41,5 +41,45 @@ class MovieController extends Controller
 
        // Retornar la respuesta con el registro creado
        return response()->json($movie, 201); // 201 es el código de "Created"
+   }
+
+   // Función para modificar un registro existente (PUT)
+   public function update(Request $request, $id)
+   {
+       $movie = Movie::find($id);
+
+       if (!$movie) {
+           return response()->json(['message' => 'Movie not found'], 404);
+       }
+
+       // Validar los datos recibidos
+       $validated = $request->validate([
+           'title' => 'sometimes|string|max:255', // Puede ser opcional (sometimes)
+           'synopsis' => 'sometimes|string',
+           'year' => 'sometimes|integer|min:1888|max:' . date('Y'),
+           'cover' => 'sometimes|url|max:255',
+       ]);
+
+       // Actualizar el registro en la base de datos
+       $movie->update($validated);
+
+       // Retornar el registro actualizado
+       return response()->json($movie);
+   }
+
+   // Función para eliminar un registro (DELETE)
+   public function destroy($id)
+   {
+       $movie = Movie::find($id);
+
+       if (!$movie) {
+           return response()->json(['message' => 'Movie not found'], 404);
+       }
+
+       // Eliminar el registro
+       $movie->delete();
+
+       // Retornar un mensaje de éxito
+       return response()->json(['message' => 'Movie deleted successfully']);
    }
 }
