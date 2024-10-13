@@ -1,0 +1,6 @@
+
+<div *ngFor="let movie of movies">
+  <h3>{{ movie.title }}</h3>
+  <p>{{ movie.description }}</p>
+  <a [routerLink]="['/movie', movie.id]">Ver detalles</a>
+</div>
