@@ -1,6 +1,31 @@
 <div *ngIf="movie">
   <h2>{{ movie.title }}</h2>
-  <p>{{ movie.description }}</p>
+  <p>{{ movie.synopsis }}</p>
   <p><strong>Año:</strong> {{ movie.year }}</p>
   <p><strong>Director:</strong> {{ movie.director }}</p>
+</div>
+<div class="container mt-5">
+  <h2>Lista de Películas</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Título</th>
+        <th>Año</th>
+        <th>Género</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let movie of movie">
+        <td>{{ movie.id }}</td>
+        <td>{{ movie.title }}</td>
+        <td>{{ movie.year }}</td>
+        <td>{{ movie.genre }}</td>
+        <td>
+          <a [routerLink]="['/movie', movie.id]" class="btn btn-info">Ver Detalles</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

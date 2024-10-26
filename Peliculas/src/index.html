@@ -1,13 +1,35 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-  <meta charset="utf-8">
-  <title>Peliculas</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Películas</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <app-root></app-root>
+    <div class="container-fluid"> <!-- Cambiado a container-fluid -->
+        <header class="d-flex align-items-center justify-content-between py-3">
+            <img src="./logo.png" alt="Catálogo de Películas" class="logo">
+        </header>
+        <hr class="my-4"> <!-- Línea divisoria -->
+        <main class="text-center my-5">
+            <h1>Bienvenido al Catálogo de Películas</h1>
+            <p>Este catálogo incluye una amplia variedad de películas de diferentes géneros, para todos los gustos. Explora nuestras colecciones y descubre tu próxima película favorita.</p>
+        </main>
+        <hr class="my-4"> <!-- Línea divisoria -->
+        <footer class="text-center py-3">
+            <p>Materia: Conceptualización de entornos de desarrollo de aplicaciones y servicios</p>
+            <p>Nombre: Alberto Amézquita Ayón</p>
+            <p>Código: 222958585</p>
+            <p>Correo: alberto.amezquita@udgvirtual.udg.mx</p>
+        </footer>
+    </div>
+
+    <!-- Enlace a Bootstrap JS y dependencias -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

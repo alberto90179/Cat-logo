@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('./fondo.jpeg');
+    background-size: cover;
+    background-position: center; /* Centra la imagen de fondo */
+    color: white;
+    height: 100vh; /* Asegura que el body cubra toda la altura de la ventana */
+}
+
+.logo {
+    max-width: 150px; /* Ajusta el tamaño de la imagen del logo */
+}
+
+.container-fluid {
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente para mejor legibilidad */
+    padding: 20px;
+    height: 100%; /* Asegura que el contenedor cubra toda la altura */
+}
+
+hr {
+    border: 1px solid white; /* Estilo de la línea divisoria */
+    margin: 20px 0; /* Espaciado alrededor de la línea */
+}
