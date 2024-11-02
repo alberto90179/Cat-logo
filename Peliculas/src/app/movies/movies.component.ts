@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MoviesService } from '../services/movies.service';  
+import { BrowserModule } from '@angular/platform-browser';
+import { AppComponent } from '../app.component';
 
 
 @Component({
@@ -14,8 +16,14 @@ export class MoviesComponent implements OnInit {
   constructor(private moviesService: MoviesService) {}
 
   ngOnInit(): void {
+    this.loadMovies();
+  }
+
+  loadMovies(): void {
     this.moviesService.getMovies().subscribe((data: any) => {
       this.movies = data;
     });
   }
 }
+
+

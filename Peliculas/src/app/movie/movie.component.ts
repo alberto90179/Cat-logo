@@ -5,8 +5,9 @@ import { MoviesService } from '../services/movies.service';
 interface Movie {
   id: number;
   title: string;
+  synopsis: string;
   year: number;
-  genre: string;
+  cover: string;
 }
 @Component({
   selector: 'app-movie',
